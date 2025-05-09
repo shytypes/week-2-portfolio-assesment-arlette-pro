@@ -109,14 +109,15 @@
       </div>
       </div>
     </main>
+
     <section class="form-section">
       <h2>Contact Me</h2>
       <form id="contactForm">
           <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName" required>
+          <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z]+" title="Please enter only alphabetic characters.">
           
           <label for="secondName">Second Name:</label>
-          <input type="text" id="secondName" name="secondName" required>
+          <input type="text" id="secondName" name="secondName" required pattern="[A-Za-z]+" title="Please enter only alphabetic characters.">
           
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
@@ -127,23 +128,30 @@
           <button type="submit">Send Message</button>
       </form>
   </section>
-</div>
 </main>
 <script>
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the form from submitting
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting
 
-  const firstName = document.getElementById('firstName').value;
-  const secondName = document.getElementById('secondName').value;
-  const email = document.getElementById('email').value;
-  const message = document.getElementById('message').value;
+      const formData = new FormData(this); 
+      const firstName = formData.get('firstName');
+      const secondName = formData.get('secondName');
+      const email = formData.get('email');
+      const message = formData.get('message');
 
-  alert(`Thank you, ${firstName} ${secondName}!\nYour message has been sent.\nEmail: ${email}\nMessage: ${message}`);
-  
-  // Optionally, you can reset the form
-  this.reset();
-});
+      const responseSection = document.createElement('section');
+      responseSection.classList.add('section');
+      responseSection.innerHTML = `
+          <h2>Thank You for Your Message!</h2>
+          <p><strong>Name:</strong> ${firstName} ${secondName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong> ${message}</p>
+      `;
+
+      // Append the new section to the main
+      document.querySelector('main').appendChild(responseSection);
+      this.reset();
+  });
 </script>
   </body>
 </html>
-
