@@ -5,7 +5,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Arlette - Portfolio</title>
     <!-- add fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,10 +18,140 @@
   </head>
   <body>
     <!-- Header Area -->
-    <header></header>
+    <header>
+      <div class="info">
+        <div class="container">
+          <h1>Arlette Tatkeu</h1>
+          <img src="./assets/images/nicePicture.jpeg" alt="arlette picture" class="profile-image">
+        </div>
+        <div class="contact">
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/arlette-tchakounte">in/arlette-tchakounte</a></p>
+          <p>Email: <a href="mailto:arlettetatkeu11@gmail.com">arlettetatkeu11@gmail.com</a></p>
+          <p>GitHub: <a href="https://github.com/arlette-pro">github/arlette-pro</a></p>
+      </div>
+      </div>
+      
+      <div class="summary">
+          <h2>Summary</h2>
+          <p>
+            I am a passionate web developer with a knack for creating
+            user-friendly and visually appealing websites. My journey in web
+            development began with a curiosity for how things work, and it has
+            since evolved into a full-fledged career. I enjoy learning new
+            technologies and applying them to real-world projects.
+          </p>
+        </div>
+    </header>
     <!-- Main Area -->
     <main>
-      <h1>My Amazing Portfolio</h1>
+      <div class="container">
+        <section id="education" class="section">
+          <h2>Education</h2>
+
+            <h3>Full Stack Web Development</h3>
+            <p>(June 2023 - March 2024)</p>
+            <p><span >CodingDojo , Online</span></p>
+            <h3>Bachelor Degree in Physics</h3>
+            <p> (October 2014 - July 2019)</p>
+            <p><span >University of Dschang , Cameroon</span></p>
+            
+        </section>
+        <section id="experience" class="section">
+          <h2>Experience</h2>
+            <h3>Full Stack Web Developer Intern</h3>
+            <p>(March 2014 - September 2019)</p>
+            <span>Seven Common Factor, Cameroon</span>
+            <ul>
+              <li>Translated Figma designs into responsive frontend components using ReactJS, TailwindCSS, and ChakraUI.</li>
+              <li>Developed and implemented engaging lessons to teach children game design using Scratch.</li>
+              <li>Instructed students on how to create web applications using HTML, CSS, and JavaScript to enhance their understanding of web development fundamentals.</li>
+          </ul>
+        </section>
+        <section id="projects" class="section">
+          <h2>Projects</h2>
+          <div class="project">
+            <h3>Hotel Laroche</h3>
+            <p>A website of a hotel using HTML and CSS</p>
+            <a href="https://github.com/arlette-pro/VotingPage">Hotel Laroche</a>
+          </div>
+          <div class="project">
+            <h3>Voting web page</h3>
+            <p>A simple web application for voting using Next.js and Shadcn ui</p>
+            <a href="https://github.com/arlette-pro/VotingPage">VotingPage</a>
+          </div>
+        </section>
+
+      <!-- Hobbies and skills -->
+      <div class="hobbies">
+        <section id="hobbies" class="section">
+          <h2>Skills</h2>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">Express</span>
+            <span class="skill">MongoDB</span> 
+            <span class="skill">Python</span>
+
+          </div>
+        </section>
+        <section id="skills" class="section">
+          <h2>Hobbies</h2>
+          <ul>
+            <li>Reading</li>
+            <li>Listening to music</li>
+            <li>Watching football</li>
+          </ul>
+
+        </section>
+      </div>
+      </div>
     </main>
+
+    <section class="form-section">
+      <h2>Contact Me</h2>
+      <form id="contactForm">
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required pattern="[A-Za-z]+" title="Please enter only alphabetic characters.">
+          
+          <label for="secondName">Second Name:</label>
+          <input type="text" id="secondName" name="secondName" required pattern="[A-Za-z]+" title="Please enter only alphabetic characters.">
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          
+          <button type="submit">Send Message</button>
+      </form>
+  </section>
+</main>
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      const formData = new FormData(this); 
+      const firstName = formData.get('firstName');
+      const secondName = formData.get('secondName');
+      const email = formData.get('email');
+      const message = formData.get('message');
+
+      const responseSection = document.createElement('section');
+      responseSection.classList.add('section');
+      responseSection.innerHTML = `
+          <h2>Thank You for Your Message!</h2>
+          <p><strong>Name:</strong> ${firstName} ${secondName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong> ${message}</p>
+      `;
+
+      // Append the new section to the main
+      document.querySelector('main').appendChild(responseSection);
+      this.reset();
+  });
+</script>
   </body>
 </html>

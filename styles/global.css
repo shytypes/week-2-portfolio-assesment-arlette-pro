@@ -1,10 +1,222 @@
+:root{
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+  --accent-color: #ff6b6b;
+  --background-dark: #1d1d24;
+  --text-dark: #2c3e50
+}
+
 /* remove default browser spacing*/
 * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 /*title text style*/
 /* the font-family 'JetBrains Mono', has been linked
  * and is available for your use
  * */
+
+
+body{
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  font-size: 16px;
+  line-height: 1.5;
+  max-width: 952px;
+  height: 877px;
+  margin: auto;
+  padding: 20px;
+  
+}
+.container{
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+}
+header{
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+header .info{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+header .summary{
+  width: 70%;
+  margin: auto;
+}
+/* ----Contacts   -----*/
+.contact { 
+  margin: 30px 20px 0;
+  width: 500px;
+  height: 110px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 5px;
+}
+.contact p{
+  color: var(--text-dark);
+  padding: 5px;
+  font-weight: bold;
+
+}
+.contact a{
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.contact a:hover{
+  text-decoration: underline;
+}
+.profile-image{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.profile-image:hover{
+  transform: scale(1.05);
+}
+
+header h1{
+  margin-bottom: 15px;
+  font-style: 2rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section{
+  background: white;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.section:hover{
+  transform: translateY(-5px);
+}
+.section h2{
+  color: var(--primary-color);
+  border-bottom: 3px solid var(--secondary-color);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+section ul{
+  margin-left: 20px;
+}
+/*----- Projects -----*/
+
+.project{
+  background: var(--background-light);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.project:hover{
+  background: #e9ecef
+}
+.project a{
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+/*-----   hobbies -----*/
+.hobbies{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* -----  Skills  ------ */
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills{
+  background: var(--secondary-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.skill:hover{
+  background-color: #fff;
+}
+#skills, #hobbies{
+ width: 100%;
+}
+span{
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+/* ----Form */
+.form-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  border: 1px solid var(--primary-color);
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-section input, .form-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-section button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-section button:hover {
+  background-color: var(--secondary-color);
+}
+
+
+/* responsive */
+@media screen and (max-width: 400px){
+ 
+  .container{
+    width: 95%;
+  }
+  header h1{
+    font-size: 2rem;
+  }
+  
+  .profile-image{
+    width: 120px;
+    height: 120px;
+  }
+}
